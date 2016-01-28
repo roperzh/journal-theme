@@ -1,0 +1,6 @@
+author = "Roberto Dip"
+description = "Simple and clean blog theme for hugo"
+license = "MIT"
+name = "journal-theme"
+source_repo = "git@github.com:roperzh/journal-theme.git"
+tags = []
