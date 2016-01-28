@@ -67,11 +67,41 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'static/img',
-          src: ['*.svg', '*.png'],
+          src: ['*.svg'],
           dest: '<%= distPath %>/css/icons'
         }],
         options: {
           enhanceSVG: true
+        }
+      }
+    },
+    watch: {
+      sass: {
+        files: [
+          'static/scss/*.scss',
+          'static/scss/**/*.scss'
+        ],
+        tasks: ['sass:dev', 'newer:autoprefixer:dev'],
+        options: {
+          spawn: false
+        }
+      },
+      js: {
+        files: [
+          jsFileList
+        ],
+        tasks: ['newer:concat'],
+        options: {
+          spawn: false
+        }
+      },
+      img: {
+        files: [
+          'static/img/*.svg'
+        ],
+        tasks: ['grunticon'],
+        options: {
+          spawn: false
         }
       }
     },
