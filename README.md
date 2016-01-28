@@ -50,3 +50,25 @@ copyright = "&copy; Copyright notice"
     subtitle = "Short subtitle/tagline of your blog"
     themecolor = "#hexcolor" # Defines the tab color in Chrome for Android.
 ```
+
+## Development
+
+### Dependencies:
+
+- Node.js
+- Grunt.js
+- Bower
+- libsass
+
+### Getting started
+
+Just clone the project and install the dependencies:
+
+```bash
+$ git clone https://github.com/roperzh/journal-theme.git
+$ npm install
+$ bower install
+$ grunt watch
+```
+
+Voilà!
