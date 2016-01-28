@@ -9,6 +9,22 @@
   {{ with .Site.Params.ga_api_key }}
   {{ end }}
 
+  <script>
+   function getSource() {
+     var pages = [];
+     {{range .Site.Pages}}
+       pages.push({
+           "title": {{.Title}},
+           "date": {{.Date.Format "Jan 2"}},
+           "content": {{.Plain}},
+           "href": {{.RelPermalink}}
+       });
+     {{end}}
+
+     return pages;
+   };
+  </script>
+
   <script src="{{ .Site.BaseURL }}/build/js/main.js" /></script>
 </body>
 </html>
