@@ -1,0 +1,35 @@
+// -------------------------------------------
+//   Defaults
+//     -> Base styles
+// -------------------------------------------
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+    color: inherit;
+  }
+}
+
+figure {
+  display: inline-block;
+}
+
+[class*=icon-] {
+  display: inline-block;
+  background-size: cover;
+}
