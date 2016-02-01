@@ -1,0 +1,13 @@
+// -------------------------------------------
+//   Horizontal navigation
+// -------------------------------------------
+
+.navigation {
+  @include delta();
+
+  columns: 2;
+
+  a {
+    display: block;
+  }
+}

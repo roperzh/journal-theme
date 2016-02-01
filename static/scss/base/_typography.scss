@@ -1,0 +1,96 @@
+// -------------------------------------------
+//   Typography
+// -------------------------------------------
+
+html {
+  font-size: $ms-base;
+  line-height: $ms-rem-ratio;
+}
+
+h1,h2,h3,h4,h5,h6,
+ul,ol,dl,
+fieldset,
+p,
+table,
+pre,
+hr {
+  margin-bottom: $ms-ratio;
+  margin-bottom: #{$ms-rem-ratio}rem;
+}
+
+/* Typography mixins
+ * magic number: 24
+ * font-size: (font in px) ÷ (16)
+ * line-height: (magic number) ÷ (font size)
+ */
+
+@mixin alpha {
+  font-size: 36px;
+  font-size: 2.25rem; /* 36px */
+  line-height: 1.35;/* 32px */
+}
+
+@mixin beta {
+  font-size: 32px;
+  font-size: 2rem;     /* 32px */
+  line-height: 1.5;    /* 48px */
+}
+
+@mixin gamma {
+  font-size: 1.5em;    /* 24px */
+  line-height: 1;      /* 24px */
+}
+
+@mixin delta {
+  font-size: 18px;
+  font-size: 1.125rem;  /* 18 */
+  line-height: 1.3;    /* 24px */
+}
+
+@mixin epsilon {
+  font-size: 16px;
+  font-size: 1rem;     /* 16px */
+  line-height: 1.5;    /* 24px */
+}
+
+@mixin zeta {
+  font-size: 14px;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.7;  /* 24px */
+}
+
+@mixin milli {
+  font-size:12px;
+  font-size:0.75rem;  /* 12px */
+  line-height:2;      /* 24px */
+}
+
+/* Shared typography classes */
+
+h1,.alpha {
+  @include alpha();
+}
+
+h2,.beta {
+  @include beta();
+}
+
+h3,.gamma {
+  @include gamma();
+}
+
+h4,.delta {
+  @include delta();
+}
+
+h5,.epsilon {
+  @include epsilon();
+}
+
+h6,.zeta  {
+  @include zeta();
+}
+
+small,.milli {
+  @include milli();
+}

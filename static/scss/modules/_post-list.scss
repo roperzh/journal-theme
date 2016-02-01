@@ -1,0 +1,40 @@
+// -------------------------------------------
+//   Article list
+// -------------------------------------------
+
+.post-list {
+  $border-def: 1px solid $default-border-color;
+
+  line-height: 2.7;
+
+  .post-list-item {
+    width: 100%;
+    display: flex;
+
+    border-top: $border-def;
+    padding-bottom: 1px;
+
+    &:last-child {
+      border-bottom: $border-def;
+    }
+
+    > :first-child {
+      width: 18%;
+    }
+
+    > :nth-child(2) {
+      width: 32%;
+      line-height: 1.3;
+    }
+
+    > :last-child {
+      @include zeta();
+
+      width: 50%;
+    }
+
+    > * {
+      margin-bottom: 0;
+    }
+  }
+}

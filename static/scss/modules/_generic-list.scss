@@ -1,0 +1,13 @@
+// -------------------------------------------
+//   Generic list
+// -------------------------------------------
+
+.generic-list {
+  margin-bottom: $ms-ratio * 2;
+
+  .generic-list-header {
+    @include alpha();
+
+    margin-left: 18%;
+  }
+}

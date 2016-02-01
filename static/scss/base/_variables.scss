@@ -4,4 +4,15 @@
 
 // Measures
 
+$container-max-width: 1030px;
+$ms-base: 16px;
+$ms-ratio: 24px;
+$ms-rem-ratio: #{$ms-ratio / $ms-base};
+
 // Colors
+
+$default-border-color: rgba(0,0,0,.5);
+
+// Fonts
+
+$font-base: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
