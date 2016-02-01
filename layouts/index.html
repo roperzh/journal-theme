@@ -1,12 +1,22 @@
 {{ partial "header.html" . }}
-<div class="article-list">
-  {{ range $index, $page := .Paginator.Pages }}
-  {{ if ne $index 0 }}
-  <hr/>
-  {{ end }}
-  {{ .Render "li" }}
-  {{ end }}
-</div>
-{{ partial "pagination.html" .Paginator }}
+  <section class="generic-list">
+    <h2 class="generic-list-header">Posts</h2>
+
+    <section class="post-list">
+      {{ range where .Data.Pages "Section" "post" | first 5 }}
+        {{ .Render "li"}}
+      {{ end }}
+    </section>
+  </section>
+
+  <section class="generic-list">
+    <h2 class="generic-list-header">Rambles</h2>
+
+    <section class="ramble-list">
+      {{ range where .Data.Pages "Section" "ramble" | first 3 }}
+        {{ .Render "li"}}
+      {{ end }}
+    </section>
+  </section>
 {{ partial "footer.html" . }}
 

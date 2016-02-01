@@ -1,0 +1,5 @@
+<section class="ramble-list">
+  {{ range where .Data.Pages "Section" "ramble" }}
+    {{ .Render "li" }}
+  {{ end }}
+</section>

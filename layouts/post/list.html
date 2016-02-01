@@ -1,0 +1,6 @@
+<section class="post-list">
+  {{ range where .Data.Pages "Section" "post" }}
+    {{ .Render "li" }}
+  {{ end }}
+</section>
+
