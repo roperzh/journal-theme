@@ -130,7 +130,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'grunticon',
     'sass',
-    'autoprefixer:build',
+    'autoprefixer:dev',
     'uglify',
     'concat',
     // 'copy'
