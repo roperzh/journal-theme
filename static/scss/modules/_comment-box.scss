@@ -1,7 +1,7 @@
 // -------------------------------------------
-//   Main
+//   Comment box
 // -------------------------------------------
 
-Journal = {};
-Journal.Behaviors = {};
-Journal.Services = {};
+.comment-box {
+  margin-bottom: $ms-ratio;
+}

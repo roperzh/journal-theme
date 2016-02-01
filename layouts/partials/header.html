@@ -34,22 +34,20 @@
   {{ end }}
   <!-- <link rel="stylesheet" href="http://basehold.it/24"> -->
 </head>
+
 <body class="container">
   <header role="banner">
-      <h1>
-        <a href="{{ .Site.BaseURL }}">Merging <br> the merge</a>
-      </h1>
+    <h1>
+      <a href="{{ .Site.BaseURL }}">Merging <br> the merge</a>
+    </h1>
 
-      <nav class="navigation">
-          <a href="#">categories</a>
-          <a href="{{ . }}">subscribe</a>
-          <a href="#">search</a>
+    <nav class="navigation">
+      <!-- <a href="#">categories</a> -->
+      <a href="{{ .RSSLink }}">subscribe</a>
+      <a href="#" data-behavior="modal-trigger">search</a>
 
-          {{ partial "contact-links.html" . }}
-        </section>
-      </nav>
-
-    </section>
+      {{ partial "contact-links.html" . }}
+    </nav>
   </header>
 
   <main role="main">

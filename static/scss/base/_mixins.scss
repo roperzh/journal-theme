@@ -54,12 +54,12 @@
 }
 
 // -------------------------------------------
-//   Container
+//   Placeholder
 // -------------------------------------------
 
-// @mixin container {
-//   @include clearfix();
-
-//   margin: 0 auto;
-//   max-width: $container-width;
-// }
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}

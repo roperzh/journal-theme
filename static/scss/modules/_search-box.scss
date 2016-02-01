@@ -1,0 +1,15 @@
+// -------------------------------------------
+//   Search Box
+// -------------------------------------------
+
+.search-form {
+  input {
+    @include beta();
+
+    width: 100%;
+
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $default-border-color;
+  }
+}

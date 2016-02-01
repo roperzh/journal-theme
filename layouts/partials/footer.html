@@ -3,23 +3,34 @@
     {{ .Site.Copyright | safeHTML }}
   </footer>
 
+  <section class="modal" data-behavior="modal" style="display: none;">
+    <form action="#" class="search-form" data-behavior="search">
+      <input type="search" placeholder="type to search" autofocus>
+    </form>
+
+    <section class="search-results" data-behavior="search-results"></section>
+  </section>
+
   {{ with .Site.Params.ga_api_key }}
   {{ end }}
 
   <script>
-   function getSource() {
-     var pages = [];
-     {{range .Site.Pages}}
-       pages.push({
-           "title": {{.Title}},
-           "date": {{.Date.Format "Jan 2"}},
-           "content": {{.Plain}},
-           "href": {{.RelPermalink}}
-       });
-     {{end}}
+    function getSource() {
+      var pages = [];
 
-     return pages;
-   };
+      {{ range $key, $value := .Site.Pages }}
+        pages.push({
+        "id": {{ $key }},
+        "title": {{ $value.Title }},
+        "date": {{ $value.Date.Format "Jan 2" }},
+        "tags": {{ $value.Params.tags }},
+        "href": {{ $value.RelPermalink }},
+        "desc": {{ $value.Summary }}
+        });
+      {{ end }}
+
+      return pages;
+    };
   </script>
 
   <script src="{{ .Site.BaseURL }}/build/js/main.js" /></script>

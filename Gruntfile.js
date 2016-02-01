@@ -10,7 +10,8 @@ module.exports = function(grunt) {
     'static/vendor/lunr.js/lunr.js',
     'static/js/main.js',
     'static/js/services/*.js',
-    'static/js/behaviors/*.js'
+    'static/js/behaviors/*.js',
+    'static/js/postamble.js'
   ];
 
   grunt.initConfig({

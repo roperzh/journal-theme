@@ -2455,7 +2455,153 @@ lunr.TokenStore.prototype.toJSON = function () {
 
 Journal = {};
 Journal.Behaviors = {};
-Journal.Services = {};
+Journal.Services = {};;// -------------------------------------------
+//   Lunr wrapper
+// -------------------------------------------
+
+Journal.Services.Lunr = Proto.extend({
+  constructor: function(pages) {
+    var engine = lunr(function() {
+      this.field("title", {
+        boost: 10
+      });
+      this.field("tags");
+      this.field("desc");
+    });
+
+    pages.forEach(function(page) {
+      engine.add(page);
+    });
+
+    this.pages = pages;
+    this.engine = engine;
+  },
+
+  search: function(term) {
+    return this.engine.search(term).map(function(result) {
+      return this.pages[result.ref];
+    }.bind(this));
+  },
+});;// -------------------------------------------
+//   Modal Trigger
+// -------------------------------------------
+
+Journal.Behaviors.ModalTrigger = Essential.Behavior.extend({
+  events: {
+    'click': 'toggleModal'
+  },
+
+  channels: {
+    'modal:closed': 'animate',
+    'modal:opened': 'animate'
+  },
+
+  toggleModal: function(e) {
+    var channel = this.el.classList.contains('active') ? 'modal:close' : 'modal:open';
+    this.emit({ channel: channel });
+    e.preventDefault();
+  },
+
+  animate: function() {
+    this.el.classList.toggle('active');
+  }
+});
+;// -------------------------------------------
+//   Modal
+// -------------------------------------------
+
+Journal.Behaviors.Modal = Essential.Behavior.extend({
+  init: function() {
+    this.main = document.querySelector('main[role="main"]');
+    this.el.style.display = 'none';
+  },
+
+  channels: {
+    'modal:open': 'open',
+    'modal:close': 'close'
+  },
+
+  open: function() {
+    this.setOverflow('hidden');
+    this.el.style.display = 'block';
+
+    setTimeout(function() {
+      this.el.classList.add('open');
+      this.el.setAttribute('aria-hidden', false);
+      this.emit({ channel: 'modal:opened' });
+    }.bind(this));
+  },
+
+  close: function() {
+    this.setOverflow('initial');
+    this.el.classList.remove('open');
+    this.el.setAttribute('aria-hidden', true);
+    this.emit({ channel: 'modal:closed' });
+
+    setTimeout(function() {
+      this.el.style.display = 'none';
+    }.bind(this), 500);
+  },
+
+  setOverflow: function(style) {
+    document.documentElement.style.overflow = style;
+    document.body.style.overflow = style;
+  }
+});
+;// -------------------------------------------
+//   Search Results
+// -------------------------------------------
+
+Journal.Behaviors.SearchResults = Essential.Behavior.extend({
+  channels: {
+    'search:showResults': 'showResults'
+  },
+
+  showResults: function(e) {
+    var results = e.detail.results,
+      html = '';
+
+    results.forEach(function(result) {
+      console.log(result)
+      html += (
+        '<section>' +
+          '<span>' + result.date + '</span>' +
+          '<h3>' +
+            '<a href="' + result.href + '">' + result.title + '</a>' +
+          '</h3>' +
+          result.desc +
+        '<section>'
+      );
+    });
+
+    this.el.innerHTML = html;
+  }
+});;// -------------------------------------------
+//   Search
+// -------------------------------------------
+
+Journal.Behaviors.Search = Essential.Behavior.extend({
+  init: function() {
+    this.lunr = Journal.Services.Lunr.new(getSource());
+  },
+
+  events: {
+    'keyup': 'performSearch'
+  },
+
+  performSearch: function(e) {
+    var results = this.lunr.search(e.target.value);
+
+    this.emit({
+      channel: 'search:showResults',
+      data: {
+        results: results
+      }
+    });
+  }
+});;// -------------------------------------------
+//   Postamble
+// -------------------------------------------
 
 document.addEventListener('DOMContentLoaded', function() {
   Essential.loadBehaviors({
@@ -2463,30 +2609,3 @@ document.addEventListener('DOMContentLoaded', function() {
     context: document
   });
 });
-
-
-function initLunr(pages) {
-  var idx = lunr(function() {
-    this.field("title", {
-      boost: 10
-    });
-    this.field("content");
-    this.ref("href");
-  });
-  pages.forEach(function(page) {
-    idx.add(page);
-  })
-  return idx
-}
-
-function search(idx, term, pages) {
-  return idx.search(term).map(function(result) {
-    return pages.filter(function(page) {
-      return page.href === result.ref;
-    })[0];
-  });
-}
-(function(pages) {
-  var lunr = initLunr(pages);
-  console.log("search for hello", search(lunr, "hello", pages));
-})(getSource())

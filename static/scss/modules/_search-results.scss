@@ -1,0 +1,15 @@
+// -------------------------------------------
+//   Search Results
+// -------------------------------------------
+
+.search-results {
+  margin-top: $ms-ratio;
+
+  h3 {
+    margin-bottom: $ms-ratio / 2;
+  }
+
+  span {
+    @include zeta();
+  }
+}
