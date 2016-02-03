@@ -8,9 +8,6 @@
   line-height: 2.7;
 
   .post-list-item {
-    width: 100%;
-    display: flex;
-
     border-top: $border-def;
     padding-bottom: 1px;
 
@@ -18,23 +15,34 @@
       border-bottom: $border-def;
     }
 
-    > :first-child {
-      width: 18%;
-    }
-
-    > :nth-child(2) {
-      width: 32%;
-      line-height: 1.3;
-    }
-
     > :last-child {
       @include zeta();
-
-      width: 50%;
     }
 
-    > * {
-      margin-bottom: 0;
+  }
+
+  @include breakpoint(notsmall) {
+    .post-list-item {
+      width: 100%;
+      display: flex;
+
+      > :first-child {
+        width: 12%;
+      }
+
+      > :nth-child(2) {
+        width: 38%;
+        line-height: 1.3;
+      }
+
+      > :last-child {
+
+        width: 50%;
+      }
+
+      > * {
+        margin-bottom: 0;
+      }
     }
   }
 }

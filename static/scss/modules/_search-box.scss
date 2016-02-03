@@ -10,6 +10,9 @@
 
     outline: none;
     border: none;
+    border-radius: 0;
+    box-shadow: none;
     border-bottom: 1px solid $default-border-color;
+     -webkit-appearance: none;
   }
 }

@@ -8,7 +8,8 @@ Journal.Behaviors.Search = Essential.Behavior.extend({
   },
 
   events: {
-    'keyup': 'performSearch'
+    'keyup': 'performSearch',
+    'submit': 'handleSubmit'
   },
 
   performSearch: function(e) {
@@ -20,5 +21,9 @@ Journal.Behaviors.Search = Essential.Behavior.extend({
         results: results
       }
     });
+  },
+
+  handleSubmit: function(e) {
+    e.preventDefault();
   }
 });

@@ -3,10 +3,12 @@
 // -------------------------------------------
 
 [role="banner"] {
-  display: flex;
-  justify-content: space-between;
-
   margin: $ms-ratio 0 ($ms-ratio * 2);
 
   border-bottom: 1px solid $default-border-color;
+
+  @include breakpoint(notsmall) {
+    display: flex;
+    justify-content: space-between;
+  }
 }

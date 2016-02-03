@@ -5,9 +5,18 @@
 .navigation {
   @include delta();
 
-  columns: 2;
+  @include breakpoint(notsmall) {
+    columns: 2;
 
-  a {
-    display: block;
+    a {
+      display: block;
+    }
+  }
+
+  @include breakpoint(small) {
+    display: flex;
+    justify-content: space-around;
+
+    border-top: 1px solid $default-border-color;
   }
 }

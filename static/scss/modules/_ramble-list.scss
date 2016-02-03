@@ -11,17 +11,21 @@
   padding: $ms-ratio 0 1px 0;
 
   .ramble-list-item {
-    width: calc(40% - #{$margin});
-    display: inline-block;
-
-    &:first-child {
-      float: left;
-      width: 60%;
-      margin-right: $margin;
-    }
-
     img {
       width: 100%;
+    }
+  }
+
+  @include breakpoint(notsmall) {
+    .ramble-list-item {
+      width: calc(40% - #{$margin});
+      display: inline-block;
+
+      &:first-child {
+        float: left;
+        width: 60%;
+        margin-right: $margin;
+      }
     }
   }
 }

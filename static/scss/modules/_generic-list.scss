@@ -7,7 +7,11 @@
 
   .generic-list-header {
     @include alpha();
+  }
 
-    margin-left: 18%;
+  @include breakpoint(notsmall) {
+    .generic-list-header {
+      margin-left: 12%;
+    }
   }
 }
