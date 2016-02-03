@@ -2,26 +2,26 @@
 <a href="{{ . }}">contact</a>
 {{ end }}
 {{ with .Site.Params.twitter }}
-<a href="https://twitter.com/{{ . }}" target="_blank">twitter</a>
+<a href="https://twitter.com/{{ . }}" class="hide-mobile" target="_blank">twitter</a>
 {{ end }}
 {{ with .Site.Params.instagram }}
-<a href="https://instagram.com/{{ . }}" target="_blank">instagram</a>
+<a href="https://instagram.com/{{ . }}" class="hide-mobile" target="_blank">instagram</a>
 {{ end }}
 {{ with .Site.Params.googleplus }}
-<a href="https://plus.google.com/+{{ . }}" target="_blank">googleplus</a>
+<a href="https://plus.google.com/+{{ . }}" class="hide-mobile" target="_blank">googleplus</a>
 {{ end }}
 {{ with .Site.Params.facebook }}
-<a href="https://facebook.com/{{ . }}" target="_blank">facebook</a>
+<a href="https://facebook.com/{{ . }}" class="hide-mobile" target="_blank">facebook</a>
 {{ end }}
 {{ with .Site.Params.github }}
-<a href="https://github.com/{{ . }}" target="_blank">github</a>
+<a href="https://github.com/{{ . }}" class="hide-mobile" target="_blank">github</a>
 {{ end }}
 {{ with .Site.Params.stackoverflow }}
-<a href="https://stackoverflow.com/users/{{ . }}" target="_blank">stackoverflow</a>
+<a href="https://stackoverflow.com/users/{{ . }}" class="hide-mobile" target="_blank">stackoverflow</a>
 {{ end }}
 {{ with .Site.Params.linkedin }}
-<a href="https://linkedin.com/in/{{ . }}" target="_blank">linkedin</a>
+<a href="https://linkedin.com/in/{{ . }}" class="hide-mobile" target="_blank">linkedin</a>
 {{ end }}
 {{ with .Site.Params.keybase }}
-<a href="https://keybase.io/{{ . }}" target="_blank">keybase</a>
+<a href="https://keybase.io/{{ . }}" class="hide-mobile" target="_blank">keybase</a>
 {{ end }}

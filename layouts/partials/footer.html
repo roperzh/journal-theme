@@ -5,14 +5,14 @@
 
   <section class="modal" data-behavior="modal" style="display: none;">
     <form action="#" class="search-form" data-behavior="search">
-      <input type="search" placeholder="type to search" autofocus>
+      <input type="search" placeholder="{{ ( index $.Site.Data.translations $.Site.Params.locale ).search.placeholder }}" autofocus>
     </form>
 
     <section class="search-results" data-behavior="search-results"></section>
   </section>
 
-  {{ with .Site.Params.ga_api_key }}
-  {{ end }}
+  {{ template "_internal/google_analytics.html" . }}
+
 
   <script>
     function getSource() {

@@ -42,9 +42,15 @@
     </h1>
 
     <nav class="navigation">
+      {{ if eq .Site.Params.locale "en-us" }}
+        <a href="/es">español</a>
+      {{ end }}
+      {{ if eq .Site.Params.locale "es" }}
+        <a href="/en">english</a>
+      {{ end }}
       <!-- <a href="#">categories</a> -->
-      <a href="{{ .RSSLink }}">subscribe</a>
-      <a href="#" data-behavior="modal-trigger">search</a>
+      <a href="{{ .RSSLink }}">{{ ( index $.Site.Data.translations $.Site.Params.locale ).menu.subscribe }}</a>
+      <a href="#" data-behavior="modal-trigger">{{ ( index $.Site.Data.translations $.Site.Params.locale ).menu.search }}</a>
 
       {{ partial "contact-links.html" . }}
     </nav>
