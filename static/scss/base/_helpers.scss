@@ -7,3 +7,8 @@
     display: none;
   }
 }
+
+.default-margin {
+  display: inline-block;
+  margin-bottom: $ms-ratio;
+}
