@@ -35,6 +35,19 @@ figure {
   display: inline-block;
 }
 
+table {
+  width: 80%;
+  text-align: center;
+
+  th, td {
+    border: 1px solid $default-border-color;
+  }
+
+  @include breakpoint(small) {
+    width: 100%;
+  }
+}
+
 [class*=icon-] {
   display: inline-block;
   background-size: cover;

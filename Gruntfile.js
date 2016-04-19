@@ -8,6 +8,7 @@ module.exports = function(grunt) {
   var jsFileList = [
     'static/vendor/essential.js/essential.js',
     'static/vendor/lunr.js/lunr.js',
+    'static/vendor/prism/prism.js',
     'static/js/main.js',
     'static/js/services/*.js',
     'static/js/behaviors/*.js',
