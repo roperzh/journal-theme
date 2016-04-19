@@ -1,14 +1,16 @@
 <article class="ramble-list-item">
-  {{ if isset .Params "img" }}
-    <img src="{{ .Params.img }}" alt="{{ .Title }}">
-  {{ end }}
+  <a href="{{ .Permalink }}">
+    {{ if isset .Params "img" }}
+      <img src="{{ .Params.img }}" alt="{{ .Title }}">
+    {{ end }}
 
-  <header>
-    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
-      {{ .Date.Format "Jan 2, 2006" }}
-    </time>
+    <header>
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
+        {{ .Date.Format "Jan 2, 2006" }}
+      </time>
 
-    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-  </header>
+      <h3>{{ .Title }}</h3>
+    </header>
+  </a>
 </article>
 
