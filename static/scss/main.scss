@@ -7,6 +7,7 @@
 // -------------------------------------
 
 @import "../vendor/normalize-scss/_normalize";
+@import "modules/prism";
 
 // -------------------------------------
 //   Base
@@ -40,4 +41,3 @@
 @import "modules/modal";
 @import "modules/search-box";
 @import "modules/search-results";
-@import "modules/prism";
